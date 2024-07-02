@@ -1,0 +1,10 @@
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Doro', 'Pesch', 'Ms');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Bobby', 'Brown', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Kurt', 'Cobain', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Nina', 'Hagen', 'Mrs');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Jimi', 'Henrix', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Janis', 'Joplin', 'Ms');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Joe', 'Cocker', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Alice', 'Cooper', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Bruce', 'Springsteen', 'Mr');
+insert into person(id, first_name, last_name, salutation) values (nextval('person_seq'), 'Eric', 'Clapton', 'Mr');
