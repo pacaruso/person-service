@@ -1,0 +1,9 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: mcaruso-test
+  name: argo-tekton-pipeline-role
+rules:
+  - apiGroups: ["tekton.dev"]
+    resources: ["pipelines", "tasks"]
+    verbs: ["create", "get", "list", "watch", "update", "patch", "delete"]
