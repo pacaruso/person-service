@@ -56,7 +56,7 @@ spec:
             - '-B'
             - '-s'
             - $(workspaces.maven-settings.path)/settings.xml
-            - '-Dmaven.repo.local=$(workspaces.source.path)'
+            - '-Dmaven.repo.local=$(workspaces.source.path)/local_repository'
             - package
         - name: MAVEN_MIRROR_URL
           value: ''
