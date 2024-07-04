@@ -102,6 +102,7 @@ spec:
             registry.redhat.io/ubi8/openjdk-17@sha256:e8cc2e476282b75d89c73057bfa713db22d72bdb2808d62d981a84c33beb2575
         - name: GOALS
           value:
+            - '-X'
             - '-B'
             - '-s /workspace/maven-settings/settings.xml'
             - '-Dmaven.repo.local=$(workspaces.source.path)/MAVEN_MIRROR'
