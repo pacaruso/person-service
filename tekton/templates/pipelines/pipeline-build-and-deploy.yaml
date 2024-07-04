@@ -45,7 +45,7 @@ spec:
         name: git-clone
       workspaces:
         - name: output
-          workspace: repository-workspace
+          workspace: source-workspace
     - name: list-files
       runAfter:
         - git-clone
@@ -54,7 +54,7 @@ spec:
         name: list-files
       workspaces:
         - name: source
-          workspace: repository-workspace
+          workspace: source-workspace
         - name: maven-settings
           workspace: maven-settings-workspace
     - name: maven-version
@@ -92,7 +92,7 @@ spec:
         name: maven
       workspaces:
         - name: source
-          workspace: repository-workspace
+          workspace: source-workspace
         - name: maven-settings
           workspace: maven-settings-workspace
     - name: maven-build-and-push
@@ -105,6 +105,7 @@ spec:
             - '-B'
             - '-s'
             - $(workspaces.maven-settings.path)/settings.xml
+            - '-Dmaven.repo.local=$(workspaces.maven-repository.path)'
             - package
         - name: MAVEN_MIRROR_URL
           value: ''
@@ -133,9 +134,12 @@ spec:
         name: maven
       workspaces:
         - name: source
-          workspace: repository-workspace
+          workspace: source-workspace
+        - name: maven-repository
+          workspace: maven-repository-workspace
         - name: maven-settings
           workspace: maven-settings-workspace
   workspaces:
-    - name: repository-workspace
+    - name: source-workspace
     - name: maven-settings-workspace
+    - name: maven-repository-workspace
