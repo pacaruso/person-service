@@ -13,4 +13,9 @@ spec:
     repoURL: 'https://github.com/pacaruso/person-service.git'
     targetRevision: HEAD
   sources: []
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - PruneLast=true
   project: default
