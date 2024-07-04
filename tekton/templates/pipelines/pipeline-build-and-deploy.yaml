@@ -4,11 +4,36 @@ metadata:
   name: build-and-deploy
   namespace: mcaruso-test
 spec:
+  params:
+    - default: 'https://github.com/pacaruso/person-service.git'
+      description: Source to the GIT
+      name: git-url
+      type: string
+    - default: main
+      description: revision to be used
+      name: git-revision
+      type: string
+    - name: context-dir
+      default: "the-source"
+      type: string
+      description: Where to checkout the source relative to the workspace
+    - name: image-name
+      type: string
+      description: the name of the target image including registry
+      default: quay.io/mcaruso/person-service
+    - name: image-username
+      type: mcaruso
+      description: the username you use to access the registry
+    - name: image-password
+      type: YzJwvmN9mxstnmPRJbQwVPorzwMSgEv6sI/K6kLFzKJjofX+NzESWAiJYRFIfMI9
+      description: The password you use to access the registry
+    - name: target-namespace
+      description: mcaruso-test
   tasks:
     - name: git-clone
       params:
         - name: url
-          value: 'https://github.com/pacaruso/person-service.git'
+          value: $(params.git-url)
         - name: revision
           value: main
         - name: refspec
@@ -57,6 +82,13 @@ spec:
             - '-s'
             - $(workspaces.maven-settings.path)/settings.xml
             - '-Dmaven.repo.local=$(workspaces.source.path)/local_repository'
+            - '-DskipTests'
+            - '-Dquarkus.container-image.push=true'
+            - '-Dquarkus.container-image.build=true'
+            - '-Dquarkus.container-image.builder=jib'
+            - '-Dquarkus.container-image.image=$(params.image-name)'
+            - '-Dquarkus.container-image.username=$(params.image-username)'
+            - '-Dquarkus.container-image.password=$(params.image-password)'
             - package
         - name: MAVEN_MIRROR_URL
           value: ''
