@@ -57,13 +57,6 @@ spec:
             - '-s'
             - $(workspaces.maven-settings.path)/settings.xml
             - '-Dmaven.repo.local=$(workspaces.source.path)/local_repository'
-            - '-DskipTests'
-            - '-Dquarkus.container-image.push=true'
-            - '-Dquarkus.container-image.build=true'
-            - '-Dquarkus.container-image.builder=jib'
-            - '-Dquarkus.container-image.image=$(params.image-name)'
-            - '-Dquarkus.container-image.username=$(params.image-username)'
-            - '-Dquarkus.container-image.password=$(params.image-password)'
             - package
         - name: MAVEN_MIRROR_URL
           value: ''
