@@ -22,7 +22,7 @@ spec:
       description: the name of the target image including registry
       default: quay.io/mcaruso/person-service
     - name: image-username
-      type: mcaruso
+      type: string
       description: the username you use to access the registry
     - name: image-password
       type: string
