@@ -103,8 +103,7 @@ spec:
         - name: GOALS
           value:
             - '-B'
-            - '-s'
-            - 'settings.xml'
+            - '-s settings.xml'
             - '-Dmaven.repo.local=$(workspaces.source.path)/MAVEN_MIRROR'
             - package
         - name: MAVEN_MIRROR_URL
