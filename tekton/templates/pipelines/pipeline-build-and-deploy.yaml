@@ -105,7 +105,7 @@ spec:
             - '-B'
             - '-s settings.xml'
             - '-Dmaven.repo.local=$(workspaces.source.path)/MAVEN_MIRROR'
-            - package
+            - 'help:effective-settings'
         - name: MAVEN_MIRROR_URL
           value: ''
         - name: SERVER_USER
