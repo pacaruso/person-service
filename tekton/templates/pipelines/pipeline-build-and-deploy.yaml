@@ -104,7 +104,7 @@ spec:
           value:
             - '-B'
             - '-s'
-            - '$(workspaces.maven-settings.path)/settings.xml'
+            - 'settings.xml'
             - '-Dmaven.repo.local=$(workspaces.source.path)/MAVEN_MIRROR'
             - package
         - name: MAVEN_MIRROR_URL
