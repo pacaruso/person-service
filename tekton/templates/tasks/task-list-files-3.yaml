@@ -1,29 +1,8 @@
 ﻿apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  creationTimestamp: '2024-07-02T12:51:14Z'
-  generation: 6
-  managedFields:
-    - apiVersion: tekton.dev/v1beta1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec': {}
-      manager: Mozilla
-      operation: Update
-      time: '2024-07-02T12:51:14Z'
-    - apiVersion: tekton.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:steps': {}
-          'f:workspaces': {}
-      manager: Mozilla
-      operation: Update
-      time: '2024-07-02T15:54:11Z'
   name: list-files-3
   namespace: mcaruso-test
-  resourceVersion: '534129741'
-  uid: 267c0398-b464-430c-a703-8ccae01db409
 spec:
   steps:
     - computeResources: {}
