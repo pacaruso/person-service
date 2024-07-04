@@ -25,7 +25,7 @@ spec:
       type: mcaruso
       description: the username you use to access the registry
     - name: image-password
-      type: YzJwvmN9mxstnmPRJbQwVPorzwMSgEv6sI/K6kLFzKJjofX+NzESWAiJYRFIfMI9
+      type: string
       description: The password you use to access the registry
     - name: target-namespace
       description: mcaruso-test
