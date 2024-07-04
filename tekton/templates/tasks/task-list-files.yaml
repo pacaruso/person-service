@@ -9,8 +9,7 @@ spec:
       image: 'alpine:latest'
       name: list-files
       script: >
-        ls -la $(workspaces.source.path); cat $(workspaces.source.path)/pom.xml;
-        cat /workspace/maven-settings/settings.xml
+        ls -la $(workspaces.source.path); cat $(workspaces.source.path)/pom.xml; cat $(workspaces.maven-settings.path)/settings.xml
   workspaces:
     - name: source
     - name: maven-settings
