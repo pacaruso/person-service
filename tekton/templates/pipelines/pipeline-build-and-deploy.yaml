@@ -57,6 +57,44 @@ spec:
           workspace: repository-workspace
         - name: maven-settings
           workspace: maven-settings-workspace
+    - name: maven-version
+      params:
+        - name: MAVEN_IMAGE
+          value: >-
+            registry.redhat.io/ubi8/openjdk-17@sha256:e8cc2e476282b75d89c73057bfa713db22d72bdb2808d62d981a84c33beb2575
+        - name: GOALS
+          value:
+            - '-version'
+        - name: MAVEN_MIRROR_URL
+          value: ''
+        - name: SERVER_USER
+          value: ''
+        - name: SERVER_PASSWORD
+          value: ''
+        - name: PROXY_USER
+          value: ''
+        - name: PROXY_PASSWORD
+          value: ''
+        - name: PROXY_PORT
+          value: ''
+        - name: PROXY_HOST
+          value: ''
+        - name: PROXY_NON_PROXY_HOSTS
+          value: ''
+        - name: PROXY_PROTOCOL
+          value: http
+        - name: CONTEXT_DIR
+          value: ''
+      runAfter:
+        - list-files
+      taskRef:
+        kind: ClusterTask
+        name: maven
+      workspaces:
+        - name: source
+          workspace: repository-workspace
+        - name: maven-settings
+          workspace: maven-settings-workspace
     - name: maven-build-and-push
       params:
         - name: MAVEN_IMAGE
@@ -90,7 +128,7 @@ spec:
         - name: CONTEXT_DIR
           value: ''
       runAfter:
-        - list-files
+        - maven-version
       taskRef:
         kind: ClusterTask
         name: maven
